@@ -1,0 +1,2 @@
+DeviceTvmSoftwareVulnerabilities
+| where CveId in ("CVE-2025-49706","CVE-2025-53770")
