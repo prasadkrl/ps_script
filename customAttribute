@@ -1,0 +1,34 @@
+#To Modify the customAttribute(1-15) or On prem ExtensionAttribute(1-15)
+#Prerequisites GRAPH API permission PeopleSettings.ReadWrite.All - consent Yes
+#Prerequisites GRAPH API permission Directory.Read.All - consent Yes
+#Prerequisites GRAPH API permission Directory.ReadWrite.All - consent Yes
+Tenant Level Global Admin
+
+Login to https://developer.microsoft.com/en-us/graph/graph-explorer
+
+Querry GET CAll to see free atributes
+GET https://graph.microsoft.com/v1.0/admin/people/profileCardProperties
+This will show the customAttributes Modified.  [save the JSON file for backup purpose.]
+If you want to check in Local ON-Prem AD used or Unused Attribute use PS commands in my PS branch
+
+let us Assure we want to change CustomAttribute1 and display that as tester no in profile card
+
+POST CAll and request payload as below (Localisation is optional)
+PoST https://graph.microsoft.com/v1.0/admin/people/profileCardProperties
+{
+  "directoryPropertyName": "CustomAttribute1",
+  "annotations": [
+    {
+      "displayName": "Tester No.",
+      "localizations": [
+        {
+          "languageTag": "en",
+          "displayName": "Tester No."
+        }
+      ]
+    }
+  ]
+}
+
+
+This may take upto 24 Hours to populate in profile card.
