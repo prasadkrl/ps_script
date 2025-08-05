@@ -1,0 +1,4 @@
+
+DeviceTvmSoftwareVulnerabilities
+| where DeviceName == "prodserver.test.com.au"
+| summarize Count = count()
